@@ -38,9 +38,9 @@ php artisan jwt:generate
 ```
 
 ### Roles
-There are two types of roles: guest and user
--guest can only view data
--users can create, update and delete data categories, specifications, types, powers, monsters and mark/catch monsters
+There are two types of roles: guest and user <br />
+-guest can only view data <br />
+-users can create, update and delete data categories, specifications, types, powers, monsters and mark/catch monsters <br />
 
 ### API DOCUMENTATION
 
