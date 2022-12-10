@@ -1,61 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+POXEDEX
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+### Developer
+* Regita Lisgiani
 
-## About Laravel
+### Built With
+* [Laravel 8](https://laravel.com/docs/8.x)
+* [MySQL](https://www.mysql.com/)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Package Use
+* [JWT Firebase](https://github.com/firebase/php-jwt)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Design Pattern
+* [Service Repository Pattern](https://dev.to/safbalili/implement-crud-with-laravel-service-repository-pattern-1dkl)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Installation
 
-## Learning Laravel
+1. First Clone the project 
+```sh
+git clone https://github.com/regitald/pokedex
+```
+2. Whenever you clone a new Laravel project you must now install all of the project dependencies. This is what actually installs Laravel itself, among other necessary packages to get started.When we run composer, it checks the composer.json file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates. So to install all this source code we run composer with the following command.
+```sh
+composer install
+```
+3. Next you should install and build your database and migrate existing migration:
+```sh
+php artisan migrate
+```
+3. Setup the database on env
+4. Run the seeder to create dump data for categories, specifications, Types and Powers
+ ```sh
+php artisan db:seed
+```
+5. Generate jwt
+ ```sh
+php artisan jwt:generate
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Roles
+There are two types of roles: guest and user
+-guest can only view data
+-users can create, update and delete data categories, specifications, types, powers, monsters and mark/catch monsters
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### API DOCUMENTATION
 
-## Laravel Sponsors
+Import the postman Documentation [Merchant Management](https://elements.getpostman.com/redirect?entityId=3484329-8d5dfe30-40f1-46a3-8386-443eaae310a6&entityType=collection)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Request Login
 
-### Premium Partners
+`GET /auth/login/`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+    curl -i -H 'Accept: application/json' {{url}}/auth/login
 
-## Contributing
+    payload body
+    ```sh
+    username: username
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Response
 
-## Code of Conduct
+{
+    "status": 201,
+    "message": "Login Success",
+    "data": {
+        "login_date": {
+            "date": "2022-12-10 01:46:05.984912",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsdW1lbi1qd3QiLCJzdWIiOjEsImlhdCI6MTY3MDYzNjc2NSwiZXhwIjoxNjcwNzIzMTY1LCJ1c2VyIjoicmVnaXRhIn0.DWv7Rq3paKpJjC5-eeP0DuM80HTRIwscnwfzw8mErR0"
+    }
+}
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Notes
+Also configure for storage upload eg: 
+```sh
+php artisan storage:link 
+```
