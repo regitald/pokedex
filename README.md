@@ -51,15 +51,12 @@ Import the postman Documentation [Merchant Management](https://elements.getpostm
 `GET /auth/login/`
 
     curl -i -H 'Accept: application/json' {{url}}/auth/login
-
-    payload body
-    ```sh
+    body json
     username: username
-    ```
+    
 
 ### Response
 
-{
     "status": 201,
     "message": "Login Success",
     "data": {
@@ -70,7 +67,6 @@ Import the postman Documentation [Merchant Management](https://elements.getpostm
         },
         "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsdW1lbi1qd3QiLCJzdWIiOjEsImlhdCI6MTY3MDYzNjc2NSwiZXhwIjoxNjcwNzIzMTY1LCJ1c2VyIjoicmVnaXRhIn0.DWv7Rq3paKpJjC5-eeP0DuM80HTRIwscnwfzw8mErR0"
     }
-}
 
 
 ### Notes
