@@ -44,7 +44,7 @@ There are two types of roles: guest and user
 
 ### API DOCUMENTATION
 
-Import the postman Documentation [Merchant Management](https://elements.getpostman.com/redirect?entityId=3484329-8d5dfe30-40f1-46a3-8386-443eaae310a6&entityType=collection)
+Import the postman Documentation [POXEDEX](https://www.postman.com/blue-crater-6199/workspace/tentang-anak/collection/3484329-8d5dfe30-40f1-46a3-8386-443eaae310a6?ctx=documentation)
 
 ### Request Login
 
