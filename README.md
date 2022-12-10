@@ -120,3 +120,8 @@ Also configure for storage upload eg:
 ```sh
 php artisan storage:link 
 ```
+<br />
+<br />
+<br />
+
+I provide the postman documentation to test the details api
