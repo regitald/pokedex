@@ -68,6 +68,52 @@ Import the postman Documentation [POXEDEX](https://www.postman.com/blue-crater-6
         "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsdW1lbi1qd3QiLCJzdWIiOjEsImlhdCI6MTY3MDYzNjc2NSwiZXhwIjoxNjcwNzIzMTY1LCJ1c2VyIjoicmVnaXRhIn0.DWv7Rq3paKpJjC5-eeP0DuM80HTRIwscnwfzw8mErR0"
     }
 
+### Request Monsters
+
+`GET /auth/monsters`
+
+    curl -i -H 'Accept: application/json' {{url}}/auth/login
+    params json
+    name: string
+    types : array of id
+    order_by : column name
+    sort_by : enum[desc,asc]
+    catch : enum[true,false]
+    
+
+### Response
+
+    "status": 200,
+    "message": "Monster Data",
+    "data": [
+        {
+            "id": 2,
+            "name": "Monster 1",
+            "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+            "image": "tiuGZx1fv6_brand_1670608271.png",
+            "created_at": "2022-12-09T17:51:11.000000Z",
+            "updated_at": "2022-12-09T17:51:11.000000Z",
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Leaf Monster"
+                },
+                {
+                    "id": 2,
+                    "name": "Diving Monster"
+                }
+            ],
+            "types": [],
+            "users": [
+                {
+                    "user_id": 1,
+                    "monster_id": 2,
+                    "created_at": "2022-12-10T01:12:46.000000Z",
+                    "updated_at": "2022-12-10T01:12:46.000000Z"
+                }
+            ]
+        }
+    ]
 
 ### Notes
 Also configure for storage upload eg: 
